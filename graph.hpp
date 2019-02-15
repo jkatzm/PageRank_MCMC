@@ -20,7 +20,18 @@ using node_label = int; // TODO: make it so that "label" can be of any type
 using timestamp = int;
 
 struct out_edge {
-    out_edge(node_id node, timestamp time = -1) : n(node), t(time) {}
+    out_edge(const node_id node, const timestamp time = -1) : n(node), t(time) {} // constructopr
+    
+    out_edge(const out_edge& old_obj) : n(old_obj.n), t(old_obj.t) {} // copy constructor
+    
+    out_edge& operator=(out_edge&&) { // move assignment
+        return *this;
+    }
+    
+    bool operator< (const out_edge& other) const {
+        return (t < other.t);
+    }
+
     const node_id n;
     const timestamp t;
 };
@@ -45,7 +56,7 @@ struct graph {
 
 private:
     unordered_map<node_id, vector<node_id>> out_neighbors; // maps nodes to their out-neighbors
-    unordered_map<node_id, vector<out_edge>> out_edges; // maps nodes to the out-edges they participate in
+    unordered_map<node_id, vector<out_edge>> out_edges; // maps nodes to the out-edges (sorted by timestamp) they participate in
     unordered_map<node_id, node_label> labels; // maps nodes to their labels
 };
 

@@ -10,7 +10,13 @@
 #include <cassert>
 #include <iostream>
 #include <fstream>
-#include <algorithm> // find
+#include <algorithm> // sort
+
+
+//bool out_edge::comp(const out_edge& lhs, const out_edge& rhs) {
+//    return lhs.t < rhs.t;
+//}
+
 
 graph::graph(string filename, string data_format, bool undir) {
     node_id i, j;
@@ -31,6 +37,8 @@ graph::graph(string filename, string data_format, bool undir) {
                 out_neighbors[j];
             }
         }
+        
+        ifs.close();
     }
     
     else if (data_format == "nlnl") { // node1 label1 node2 label2
@@ -47,6 +55,8 @@ graph::graph(string filename, string data_format, bool undir) {
             labels[i] = label_i;
             labels[j] = label_j;
         }
+        
+        ifs.close();
     }
     
     else if (data_format == "nnt") { // node1 node2 timestamp
@@ -60,14 +70,19 @@ graph::graph(string filename, string data_format, bool undir) {
                 out_edges[j];
             }
         }
+        
+        ifs.close();
+        
+        // sort the out_edges
+        for (auto& it : out_edges) {
+            std::sort(it.second.begin(), it.second.end());
+        }
     }
     
     else {
         ifs.close();
         throw "unknown graph type";
     }
-    
-    ifs.close();
 }
 
 
@@ -99,17 +114,17 @@ bool graph::node_exists(node_id n) const {
 
 
 node_label graph::get_label(node_id n) const {
-    assert(node_exists(n));
+//    assert(node_exists(n));
     return labels.at(n);
 }
 
 const vector<node_id>& graph::get_out_neighbors(node_id n) const {
-    assert(node_exists(n));
+//    assert(node_exists(n));
     return out_neighbors.at(n);
 }
 
 const vector<out_edge>& graph::get_out_edges(node_id n) const {
-    assert(node_exists(n));
+//    assert(node_exists(n));
     return out_edges.at(n);
 }
 
@@ -117,11 +132,12 @@ const vector<out_edge>& graph::get_out_edges(node_id n) const {
 
 
 void graph::print_neighbors(node_id n) const {
+    assert(node_exists(n));
     cout << n << "\n";
     
     if (has_timestamps()) {
         for (const auto& it : get_out_edges(n)) {
-            cout << "--> " << it.n << " (" << it.t << ")\n";
+            cout << "--> " << it.n << " (t=" << it.t << ")\n";
         }
     }
     

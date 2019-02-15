@@ -75,7 +75,7 @@ struct state {
     
 private:
     const int k; // max allotted history size
-    deque<node_id> history;
+    deque<node_id> history; // takes into consideration the "current node"
     timestamp prev_timestamp;
 };
 
