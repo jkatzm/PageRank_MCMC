@@ -1,1 +1,1 @@
-# PageRank_MCMC_research_code
+PageRank MCMC by Jordan
