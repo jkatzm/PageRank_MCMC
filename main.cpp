@@ -14,7 +14,7 @@
 
 int main(int argc, const char * argv[]) {
 
-    const string file_dir = "/Users/katz13/Dropbox/C++HOP_expander/Data/";
+    const string file_dir = "/p/lscratchh/katz13/Data/"; // "/Users/katz13/Dropbox/C++HOP_expander/Data/";
     const string file_name = "SNAP_Higgs_Twitter/JKATZM_higgs_influence_network.txt";
     // files:
     // SNAP_CollegeMsg_adjusted.txt
