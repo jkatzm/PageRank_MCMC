@@ -9,6 +9,7 @@
 #include "walk.hpp"
 #include <random>
 #include <cassert>
+#include <omp.h>
 
 /*
 bool continue_walking(double alpha) {

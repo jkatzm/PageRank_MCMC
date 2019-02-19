@@ -21,12 +21,11 @@ template <typename T>
 const T& get_random_item(const vector<T>& vec, std::mt19937& engine); // returns a random item from the vector
 
 
-
-
 struct transition_rule {
     transition_rule(string rule) : rule(rule) {}
     
     void operator()(const graph& G, state& current_state, std::mt19937& engine) const;
+
     void T_PageRank(const graph& G, state& current_state, std::mt19937& engine) const;
     void T_temporally_causal(const graph& G, state& current_state, std::mt19937& engine) const;
     void T_self_avoiding(const graph& G, state& current_state, std::mt19937& engine) const;
@@ -35,8 +34,6 @@ struct transition_rule {
 private:
     const string rule;
 };
-
-
 
 
 #endif /* transition_rule_hpp */

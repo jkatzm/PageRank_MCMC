@@ -41,19 +41,19 @@ int main(int argc, const char * argv[]) {
     transition_rule T(rule); // Parameter
     cout << "Transition rule: \"" + rule + "\"\n";
     
-    const int history_size = 1; // Parameter
+    const int history_size = 3; // Parameter
     cout << "History size: " << history_size << "\n";
     
     const double alpha = 0.85; // Parameter
     cout << "alpha: " << alpha << "\n";
     
-    const int num_steps = 1; // Parameter
+    const int num_steps = 10; // Parameter
     cout << "num_steps/node: " << num_steps << "\n";
     
-    const bool global = true; // Parameter
+    const bool global = false; // Parameter
     cout << "Global ranking: " << std::boolalpha << global << "\n";
     
-    const node_id seed_node = -1; // Parameter
+    const node_id seed_node = 8171; // Parameter
     cout << "Seed node: " << seed_node << "\n";
     
     const node_id target_node = -1; // Parameter
@@ -70,12 +70,12 @@ int main(int argc, const char * argv[]) {
     cout << "Sumulation complete.\n";
     
     // cout << CHOP_scores.CP_scores.at(target_node) << " " << CHOP_scores.EP_scores.at(target_node) << '\n';
-    
-    cout << "\nGlobal CP scores:\n";
-    print_top_k_scores(CHOP_scores.CP_scores, int(G.num_nodes()));
 
-    cout << "\nGlobal EP scores:\n";
-    print_top_k_scores(CHOP_scores.EP_scores, int(G.num_nodes()));
+    cout << "\nGlobal CP scores:\n";
+    print_top_k_scores(CHOP_scores.CP_scores, 25);
+
+    // cout << "\nGlobal EP scores:\n";
+    // print_top_k_scores(CHOP_scores.EP_scores, int(G.num_nodes()));
     
     auto stop_time = chrono::high_resolution_clock::now();
     auto elapsed = chrono::duration_cast<chrono::seconds>(stop_time - start_time);
