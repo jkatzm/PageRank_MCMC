@@ -98,4 +98,3 @@ score simulate_walk(const graph& G, const transition_rule& T, const node_id seed
     return walk_scores;
 }
 
-
