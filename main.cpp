@@ -47,7 +47,7 @@ int main(int argc, const char * argv[]) {
     const double alpha = 0.85; // Parameter
     cout << "alpha: " << alpha << "\n";
     
-    const int num_steps = 1000000; // Parameter
+    const int num_steps = 20000000; // Parameter
     cout << "num_steps/node: " << num_steps << "\n";
     
     const bool global = false; // Parameter
