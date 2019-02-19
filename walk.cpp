@@ -79,14 +79,19 @@ score simulate_walk(const graph& G, const transition_rule& T, const node_id seed
         for (int r = 0; r < n_runs; ++r) {
             state current_state(history_size, seed);
             
-            walk_scores.CP_scores.at(seed) += (1-alpha) / n_runs;
+            walk_scores.CP_scores.at(seed)++;
             
             while (continue_walk(engine)) {
                 T.operator()(G, current_state, engine);
-                walk_scores.CP_scores.at(current_state.get_current_node()) += (1-alpha) / n_runs;
+                walk_scores.CP_scores.at(current_state.get_current_node())++;
             }
             
-            walk_scores.EP_scores.at(current_state.get_current_node()) += 1.0 / n_runs;
+            walk_scores.EP_scores.at(current_state.get_current_node())++;
+        }
+
+        for (int i = 0; i < G.num_nodes(); ++i) {
+            walk_scores.CP_scores[i] *= (1.0-alpha)/n_runs;
+            walk_scores.EP_scores[i] *= 1.0/n_runs;
         }
     }
     
