@@ -74,13 +74,11 @@ int main(int argc, const char * argv[]) {
     const score& CHOP_scores = simulate_walk(G, T, seed_node, history_size, alpha, num_steps, global);
     cout << "Sumulation complete.\n";
     
-    // cout << CHOP_scores.CP_scores.at(target_node) << " " << CHOP_scores.EP_scores.at(target_node) << '\n';
+    // cout << "\nTop CP scores:\n";
+    // print_top_k_scores(CHOP_scores.CP_scores, 25);
 
-    cout << "\nGlobal CP scores:\n";
-    print_top_k_scores(CHOP_scores.CP_scores, 25);
-
-    // cout << "\nGlobal EP scores:\n";
-    // print_top_k_scores(CHOP_scores.EP_scores, int(G.num_nodes()));
+    cout << "\nTop EP scores:\n";
+    print_top_k_scores(CHOP_scores.EP_scores, 25);
     
     auto stop_time = chrono::high_resolution_clock::now();
     auto elapsed = chrono::duration_cast<chrono::seconds>(stop_time - start_time);
