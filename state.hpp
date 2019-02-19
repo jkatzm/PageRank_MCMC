@@ -71,7 +71,6 @@ struct state {
     }
     
     
-
     
 private:
     const int k; // max allotted history size

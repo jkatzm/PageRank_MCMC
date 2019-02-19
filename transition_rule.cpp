@@ -237,7 +237,3 @@ void transition_rule::T_temporal_self_avoiding(const graph& G, state& current_st
     current_state.update_history(next_node);
     */
 }
-
-
-
-

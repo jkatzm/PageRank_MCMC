@@ -36,4 +36,5 @@ score simulate_walk(const graph& G, const transition_rule& T, const node_id seed
                     // "alpha" is the probability the walker continues to walk (as opposed to terminate). must be between 0 and 1
                     // "T" tells the walker how to move based on the current state
 
+
 #endif /* walk_hpp */
