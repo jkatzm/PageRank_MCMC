@@ -47,7 +47,7 @@ int main(int argc, const char * argv[]) {
     const double alpha = 0.85; // Parameter
     cout << "alpha: " << alpha << "\n";
     
-    const int num_steps = 10; // Parameter
+    const int num_steps = 1000; // Parameter
     cout << "num_steps/node: " << num_steps << "\n";
     
     const bool global = false; // Parameter
@@ -55,6 +55,7 @@ int main(int argc, const char * argv[]) {
     
     const node_id seed_node = 8171; // Parameter
     cout << "Seed node: " << seed_node << "\n";
+    if (seed_node != -1) G.print_neighbors(seed_node);
     
     const node_id target_node = -1; // Parameter
     cout << "Target node: " << target_node << "\n";
