@@ -74,8 +74,8 @@ int main(int argc, const char * argv[]) {
     const score& CHOP_scores = simulate_walk(G, T, seed_node, history_size, alpha, num_steps, global);
     cout << "Sumulation complete.\n";
     
-    // cout << "\nTop CP scores:\n";
-    // print_top_k_scores(CHOP_scores.CP_scores, 25);
+    cout << "\nTop CP scores:\n";
+    print_top_k_scores(CHOP_scores.CP_scores, 25);
 
     cout << "\nTop EP scores:\n";
     print_top_k_scores(CHOP_scores.EP_scores, 25);
