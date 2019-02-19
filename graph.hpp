@@ -60,5 +60,4 @@ private:
     unordered_map<node_id, node_label> labels; // maps nodes to their labels
 };
 
-
 #endif /* graph_hpp */
