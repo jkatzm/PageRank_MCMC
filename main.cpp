@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
     transition_rule T(rule); // Parameter
     cout << "Transition rule: \"" + rule + "\"\n";
     
-    const int history_size = 3; // Parameter
+    const int history_size = 1; // Parameter
     cout << "History size: " << history_size << "\n";
     
     const double alpha = 0.85; // Parameter
