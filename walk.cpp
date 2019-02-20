@@ -113,6 +113,12 @@ bool temporal_path_exists(const graph& G, const node_id source, const node_id ta
     auto comp = [=](const out_edge& e) { return e.t > t_prev; };
     auto first_causal = find_if(neighbors.begin(), neighbors.end(), comp);
     size_t distance = std::distance(first_causal, neighbors.end());
+
+    if (distance == 0) {
+        return false;
+    }
+
+    cout << distance << '\n';
     
     for (auto it = first_causal; it != neighbors.end(); it++) {
         if (it->n == target) {
@@ -120,7 +126,6 @@ bool temporal_path_exists(const graph& G, const node_id source, const node_id ta
         }
     }
 
-    cout << distance << '\n';
 
     for (auto it = first_causal; it != neighbors.end(); it++) {
         if (temporal_path_exists(G, it->n, target, it->t)) {
