@@ -59,7 +59,7 @@ int main(int argc, const char * argv[]) {
     if (G.node_exists(seed_node)) {
     	cout << "Neighbors of seed: \n";
     	G.print_neighbors(seed_node);
-    	cout << '\n\n';
+    	cout << "\n\n";
     }
     
     const node_id target_node = 2799; // Parameter
