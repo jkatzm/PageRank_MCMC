@@ -83,7 +83,7 @@ void transition_rule::T_temporally_causal(const graph& G, state& current_state, 
     const vector<out_edge>& neighbors = G.get_out_edges(current_state.get_current_node());
     // assumes neighbors are sorted by timestamp
     
-    auto comp = [=](const out_edge& e) { return e.t >= current_state.get_previous_timestamp(); };
+    auto comp = [=](const out_edge& e) { return e.t > current_state.get_previous_timestamp(); };
     auto first_causal = find_if(neighbors.begin(), neighbors.end(), comp);
     size_t distance = std::distance(first_causal, neighbors.end());
 
@@ -178,6 +178,9 @@ void transition_rule::T_temporal_self_avoiding(const graph& G, state& current_st
     
     // Assumption: neighbors are sorted by timestamp!!
     auto comp = [=](const out_edge& e) { return e.t >= current_state.get_previous_timestamp(); };
+    
+
+
     auto it = find_if(neighbors.begin(), neighbors.end(), comp);
     
     size_t distance = std::distance(it, neighbors.end());
