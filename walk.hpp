@@ -37,4 +37,6 @@ score simulate_walk(const graph& G, const transition_rule& T, const node_id seed
                     // "T" tells the walker how to move based on the current state
 
 
+int num_temporal_paths(const graph& G, const node_id source, const node_id target, timestamp t_prev);
+
 #endif /* walk_hpp */

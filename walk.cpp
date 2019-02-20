@@ -98,3 +98,30 @@ score simulate_walk(const graph& G, const transition_rule& T, const node_id seed
     return walk_scores;
 }
 
+
+
+int num_temporal_paths(const graph& G, const node_id source, const node_id target, timestamp t_prev) {
+    // we start from the source node. if we hit the target node we increment the count and leave the queue
+
+    assert(G.has_timestamps());
+    assert(G.node_exists(source));
+    assert(G.node_exists(target));
+
+    int count = 0;
+
+    // loop through the temporal neighbors
+    const vector<out_edge>& neighbors = G.get_out_edges(source);
+    auto comp = [=](const out_edge& e) { return e.t >= t_prev; };
+    auto first_causal = find_if(neighbors.begin(), neighbors.end(), comp);
+    
+    for (auto it = first_causal; it != neighbors.end(); it++) {
+        if (it->n == target) {
+            count++;
+        }
+        else {
+            count += num_temporal_paths(G, it->n, target, it->t);
+        }
+    }
+
+    return count;
+}
