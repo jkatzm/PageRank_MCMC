@@ -56,10 +56,11 @@ int main(int argc, const char * argv[]) {
     const node_id seed_node = 603; // Parameter
     cout << "Seed node: " << seed_node << "\n";
 
-    // if (G.node_exists(seed_node)) {
-    // 	cout << "Neighbors of seed: \n";
-    // 	G.print_neighbors(seed_node);
-    // }
+    if (G.node_exists(seed_node)) {
+    	cout << "Neighbors of seed: \n";
+    	G.print_neighbors(seed_node);
+    	cout << '\n\n';
+    }
     
     const node_id target_node = 2799; // Parameter
     cout << "Target node: " << target_node << "\n";
