@@ -80,7 +80,7 @@ int main(int argc, const char * argv[]) {
     // cout << "\nTop EP scores:\n";
     // print_top_k_scores(CHOP_scores.EP_scores, 25);
 
-    cout << temporal_path_exists(G, seed_node, target_node, -1) << '\n';
+    cout << temporal_path_exists(G, seed_node, target_node, -1, 0) << '\n';
     
     auto stop_time = chrono::high_resolution_clock::now();
     auto elapsed = chrono::duration_cast<chrono::seconds>(stop_time - start_time);

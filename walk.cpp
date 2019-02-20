@@ -100,12 +100,16 @@ score simulate_walk(const graph& G, const transition_rule& T, const node_id seed
 
 
 
-bool temporal_path_exists(const graph& G, const node_id source, const node_id target, timestamp t_prev) {
+bool temporal_path_exists(const graph& G, const node_id source, const node_id target, timestamp t_prev, int num_steps) {
     // we start from the source node. if we hit the target node we increment the count and leave the queue
 
     // assert(G.has_timestamps());
     // assert(G.node_exists(source));
     // assert(G.node_exists(target));
+
+    if (num_steps >= 5) {
+        return false;
+    }
 
 
     // loop through the temporal neighbors
@@ -130,7 +134,7 @@ bool temporal_path_exists(const graph& G, const node_id source, const node_id ta
 
 
     for (auto it = first_causal; it != neighbors.end(); it++) {
-        if (temporal_path_exists(G, it->n, target, it->t)) {
+        if (temporal_path_exists(G, it->n, target, it->t, num_steps+1)) {
             return true;
         }
     }
