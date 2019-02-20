@@ -123,5 +123,6 @@ int num_temporal_paths(const graph& G, const node_id source, const node_id targe
         }
     }
 
+    cout << count << '\n';
     return count;
 }
