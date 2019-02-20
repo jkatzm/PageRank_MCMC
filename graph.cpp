@@ -73,7 +73,7 @@ graph::graph(string filename, string data_format, bool undir) {
         
         ifs.close();
         
-        // sort the out_edges
+        // sort the out_edges according to their operator<
         for (auto& it : out_edges) {
             std::sort(it.second.begin(), it.second.end());
         }
