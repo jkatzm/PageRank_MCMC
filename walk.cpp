@@ -118,7 +118,9 @@ bool temporal_path_exists(const graph& G, const node_id source, const node_id ta
         return false;
     }
 
-    cout << distance << '\n';
+    if (source == 603) {
+        cout << distance << '\n';
+    }
     
     for (auto it = first_causal; it != neighbors.end(); it++) {
         if (it->n == target) {
