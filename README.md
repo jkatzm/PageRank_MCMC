@@ -1,1 +1,1 @@
-PageRank MCMC by Jordan
+Higher Order PageRank sequential code
