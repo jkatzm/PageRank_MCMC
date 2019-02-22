@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
     graph G(file_dir + file_name, edge_list_type); // Parameter
     cout << "Graph has " << G.num_nodes() << " nodes\n";
     
-    string rule = "temporally_causal";
+    string rule = "PageRank";
     // transition rules:
     // PageRank
     // temporally_causal
@@ -47,13 +47,13 @@ int main(int argc, const char * argv[]) {
     const double alpha = 0.85; // Parameter
     cout << "alpha: " << alpha << "\n";
     
-    const int num_steps = 20000000; // Parameter
+    const int num_steps = 1000000; // Parameter
     cout << "num_steps/node: " << num_steps << "\n";
     
     const bool global = false; // Parameter
     cout << "Global ranking: " << std::boolalpha << global << "\n";
     
-    const node_id seed_node = 603; // Parameter
+    const node_id seed_node = 0; // Parameter
     cout << "Seed node: " << seed_node << "\n";
 
     if (G.node_exists(seed_node)) {
@@ -71,17 +71,17 @@ int main(int argc, const char * argv[]) {
 
     auto start_time = chrono::high_resolution_clock::now();
     
-    // cout << "\nRunning simulation...\n";
-    // const score& CHOP_scores = simulate_walk(G, T, seed_node, history_size, alpha, num_steps, global);
-    // cout << "Sumulation complete.\n";
+     cout << "\nRunning simulation...\n";
+     const score& CHOP_scores = simulate_walk(G, T, seed_node, history_size, alpha, num_steps, global);
+     cout << "Sumulation complete.\n";
     
-    // cout << "\nTop CP scores:\n";
-    // print_top_k_scores(CHOP_scores.CP_scores, 25);
+     cout << "\nTop CP scores:\n";
+     print_top_k_scores(CHOP_scores.CP_scores, 25);
 
     // cout << "\nTop EP scores:\n";
     // print_top_k_scores(CHOP_scores.EP_scores, 25);
 
-    cout << temporal_path_exists(G, seed_node, target_node, -1, 0) << '\n';
+//    cout << temporal_path_exists(G, seed_node, target_node, -1, 0) << '\n';
     
     auto stop_time = chrono::high_resolution_clock::now();
     auto elapsed = chrono::duration_cast<chrono::seconds>(stop_time - start_time);
