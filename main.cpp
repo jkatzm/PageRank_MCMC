@@ -47,23 +47,23 @@ int main(int argc, const char * argv[]) {
     const double alpha = 0.85; // Parameter
     cout << "alpha: " << alpha << "\n";
     
-    const int num_steps = 1000000; // Parameter
+    const int num_steps = 10000000; // Parameter
     cout << "num_steps/node: " << num_steps << "\n";
     
     const bool global = false; // Parameter
     cout << "Global ranking: " << std::boolalpha << global << "\n";
     
-    const node_id seed_node = 603; // Parameter
+    const node_id seed_node = 3325; // Parameter
     cout << "Seed node: " << seed_node << "\n";
 
-    if (G.node_exists(seed_node)) {
-    	cout << "Neighbors of seed: \n";
-    	G.print_neighbors(seed_node);
-    	cout << "\n\n";
-    }
+    // if (G.node_exists(seed_node)) {
+    // 	cout << "Neighbors of seed: \n";
+    // 	G.print_neighbors(seed_node);
+    // 	cout << "\n\n";
+    // }
     
-    const node_id target_node = -1; // Parameter
-    cout << "Target node: " << target_node << "\n";
+    // const node_id target_node = -1; // Parameter
+    // cout << "Target node: " << target_node << "\n";
     
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
     // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
