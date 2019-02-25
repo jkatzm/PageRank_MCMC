@@ -15,13 +15,13 @@
 int main(int argc, const char * argv[]) {
 
     const string file_dir = "/p/lscratchh/katz13/Data/"; // "/Users/katz13/Dropbox/C++HOP_expander/Data/";
-    const string file_name = "SNAP_facebook_0.txt";
+    const string file_name = "SNAP_Higgs_Twitter/JKATZM_higgs_influence_network.txt";
     // files:
     // SNAP_CollegeMsg_adjusted.txt
     // SNAP_facebook_0.txt
     // SNAP_Higgs_Twitter/JKATZM_higgs_influence_network.txt
     
-    const string edge_list_type = "nn";
+    const string edge_list_type = "nnt";
     // edge list types:
     // nn
     // nnt
@@ -53,7 +53,7 @@ int main(int argc, const char * argv[]) {
     const bool global = false; // Parameter
     cout << "Global ranking: " << std::boolalpha << global << "\n";
     
-    const node_id seed_node = 224; // Parameter
+    const node_id seed_node = 603; // Parameter
     cout << "Seed node: " << seed_node << "\n";
 
     if (G.node_exists(seed_node)) {
