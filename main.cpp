@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
     graph G(file_dir + file_name, edge_list_type); // Parameter
     cout << "Graph has " << G.num_nodes() << " nodes\n";
     
-    string rule = "PageRank";
+    string rule = "temporally_causal";
     // transition rules:
     // PageRank
     // temporally_causal
@@ -47,13 +47,13 @@ int main(int argc, const char * argv[]) {
     const double alpha = 0.85; // Parameter
     cout << "alpha: " << alpha << "\n";
     
-    const int num_steps = 10000000; // Parameter
+    const int num_steps = 1000000; // Parameter
     cout << "num_steps/node: " << num_steps << "\n";
     
     const bool global = false; // Parameter
     cout << "Global ranking: " << std::boolalpha << global << "\n";
     
-    const node_id seed_node = 3325; // Parameter
+    const node_id seed_node = 603; // Parameter
     cout << "Seed node: " << seed_node << "\n";
 
     // if (G.node_exists(seed_node)) {
